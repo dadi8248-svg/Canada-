@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>CanadaRestaurant.shop — Premium Domain For Sale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --red:#D93025;
+  --red2:#FF4436;
+  --cream:#FDF6EE;
+  --dark:#0F0D0C;
+  --mid:#1E1A18;
+  --text:#2A2420;
+  --muted:#7A6E68;
+  --border:rgba(0,0,0,0.08);
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden;cursor:none}
+
+/* CURSOR */
+#cursor{position:fixed;width:12px;height:12px;background:var(--red);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .3s,height .3s,background .3s}
+#cursor-ring{position:fixed;width:40px;height:40px;border:1.5px solid var(--red);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s,opacity .3s;opacity:.5}
+.cursor-grow #cursor{width:60px;height:60px;background:rgba(217,48,37,.15)}
+.cursor-grow #cursor-ring{opacity:0}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s}
+nav.solid{background:rgba(253,246,238,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+
+/* logo: canada=white, Restaurant=red, .shop=white */
+.nav-logo{font-family:'Fraunces',serif;font-size:1.15rem;font-weight:700;text-decoration:none;letter-spacing:-.01em}
+.nav-logo .logo-canada{color:#fff}
+.nav-logo .logo-restaurant{color:var(--red)}
+.nav-logo .logo-tld{color:#fff}
+nav.solid .nav-logo .logo-canada{color:var(--dark)}
+nav.solid .nav-logo .logo-tld{color:var(--dark)}
+
+.nav-pill{
+  display:flex;align-items:center;gap:8px;
+  background:var(--red);color:#fff;
+  font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;
+  padding:10px 22px;border-radius:100px;text-decoration:none;
+  transition:background .25s,transform .2s
+}
+.nav-pill:hover{background:var(--red2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:680px;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.hero-left{position:relative;display:flex;flex-direction:column;justify-content:flex-end;padding:80px 56px;background:var(--dark);z-index:2}
+.hero-left::after{content:'';position:absolute;right:-1px;top:0;bottom:0;width:2px;background:var(--cream);z-index:3}
+.hero-photo{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=85') center/cover;opacity:.35;transition:opacity .6s}
+.hero-left:hover .hero-photo{opacity:.5}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(217,48,37,.15);border:1px solid rgba(217,48,37,.3);
+  color:var(--red2);font-size:.7rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;margin-bottom:28px;width:fit-content;
+  animation:fadeUp .8s .2s both
+}
+.hero-title{font-family:'Fraunces',serif;font-size:clamp(2.8rem,5vw,5rem);font-weight:900;line-height:1.0;color:#fff;animation:fadeUp .8s .35s both}
+.hero-title em{font-style:italic;color:var(--red2)}
+.hero-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.55);margin:20px 0 40px;line-height:1.7;max-width:380px;animation:fadeUp .8s .5s both}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .8s .65s both}
+.btn-solid{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--red);color:#fff;
+  font-size:.8rem;font-weight:500;letter-spacing:.04em;
+  padding:14px 30px;border-radius:100px;text-decoration:none;
+  transition:background .25s,transform .2s
+}
+.btn-solid:hover{background:var(--red2);transform:translateY(-2px)}
+.btn-outline{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:rgba(255,255,255,.75);
+  border:1px solid rgba(255,255,255,.2);
+  font-size:.8rem;font-weight:500;
+  padding:14px 30px;border-radius:100px;text-decoration:none;
+  transition:border-color .25s,color .25s
+}
+.btn-outline:hover{border-color:rgba(255,255,255,.6);color:#fff}
+
+.hero-right{position:relative;overflow:hidden}
+.hero-right-grid{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;height:100%;gap:3px}
+.himg{overflow:hidden;position:relative}
+.himg img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 6s ease}
+.himg:hover img{transform:scale(1.0)}
+.himg.tall{grid-row:span 2}
+.himg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,transparent 50%,rgba(15,13,12,.45))}
+
+/* TICKER */
+.ticker{background:var(--red);overflow:hidden;padding:12px 0}
+.ticker-track{display:flex;width:max-content;animation:ticker 20s linear infinite}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.ticker-item{display:flex;align-items:center;gap:16px;padding:0 24px;font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:#fff;white-space:nowrap}
+.ticker-sep{width:4px;height:4px;background:rgba(255,255,255,.4);border-radius:50%}
+
+/* STATS BAR */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--border)}
+.stat{padding:40px 32px;border-right:1px solid var(--border);transition:background .3s}
+.stat:last-child{border-right:none}
+.stat:hover{background:#fff}
+.stat-num{font-family:'Fraunces',serif;font-size:2.8rem;font-weight:900;color:var(--dark);line-height:1;margin-bottom:6px}
+.stat-num span{color:var(--red)}
+.stat-label{font-size:.72rem;font-weight:400;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.stat-source{font-size:.6rem;color:rgba(122,110,104,.5);margin-top:4px}
+
+/* WHY SECTION */
+.why{padding:100px 48px;background:#fff}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.section-label::before{content:'';width:28px;height:1.5px;background:var(--red)}
+.section-title{font-family:'Fraunces',serif;font-size:clamp(2rem,3.5vw,3.2rem);font-weight:700;line-height:1.1;color:var(--dark);max-width:480px;margin-bottom:60px}
+.section-title em{font-style:italic;color:var(--red)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px}
+.why-card{position:relative;background:var(--cream);padding:48px 40px;overflow:hidden;transition:background .35s}
+.why-card::before{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.why-card:hover{background:#fff}
+.why-card:hover::before{transform:scaleX(1)}
+.why-num{font-family:'Fraunces',serif;font-size:5rem;font-weight:900;color:rgba(0,0,0,.05);line-height:1;margin-bottom:-10px}
+.why-icon{font-size:2rem;margin-bottom:20px}
+.why-card h3{font-family:'Fraunces',serif;font-size:1.4rem;font-weight:700;color:var(--dark);margin-bottom:12px}
+.why-card p{font-size:.88rem;line-height:1.75;color:var(--muted)}
+
+/* PHOTO MOSAIC */
+.mosaic{padding:0;background:var(--dark);display:grid;grid-template-columns:2.2fr 1fr 1fr;grid-template-rows:320px 320px;gap:3px}
+.mimg{overflow:hidden;position:relative}
+.mimg img{width:100%;height:100%;object-fit:cover;filter:brightness(.8) saturate(.85);transition:filter .5s,transform .6s}
+.mimg:hover img{filter:brightness(1) saturate(1);transform:scale(1.04)}
+.mimg.tall{grid-row:span 2}
+.mimg-caption{position:absolute;bottom:20px;left:24px;font-family:'Fraunces',serif;font-size:.9rem;font-style:italic;color:rgba(255,255,255,.6);transition:color .3s}
+.mimg:hover .mimg-caption{color:#fff}
+
+/* WHO SECTION */
+.who{padding:100px 48px;background:var(--cream)}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.who-image{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:4/5}
+.who-image img{width:100%;height:100%;object-fit:cover}
+.who-image-badge{position:absolute;bottom:32px;left:-24px;background:var(--red);color:#fff;padding:20px 28px;border-radius:4px;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+.badge-big{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:900;line-height:1}
+.badge-small{font-size:.68rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;opacity:.8}
+.who-cards{display:flex;flex-direction:column;gap:3px;margin-top:40px}
+.who-card{display:flex;align-items:flex-start;gap:20px;background:#fff;padding:28px 30px;transition:transform .25s,box-shadow .25s}
+.who-card:hover{transform:translateX(6px);box-shadow:-4px 0 0 var(--red)}
+.who-card-icon{font-size:1.6rem;flex-shrink:0;margin-top:2px}
+.who-card h4{font-family:'Fraunces',serif;font-size:1.05rem;font-weight:700;color:var(--dark);margin-bottom:4px}
+.who-card p{font-size:.82rem;line-height:1.65;color:var(--muted)}
+
+/* CTA */
+.cta{position:relative;overflow:hidden;background:var(--dark);padding:120px 48px;text-align:center}
+.cta-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=1600&q=70') center/cover;opacity:.12}
+.cta-inner{position:relative;max-width:680px;margin:0 auto}
+.cta-label{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(217,48,37,.7);margin-bottom:20px}
+.cta-title{font-family:'Fraunces',serif;font-size:clamp(2.4rem,4.5vw,4.2rem);font-weight:900;line-height:1.05;color:#fff;margin-bottom:16px}
+.cta-title em{font-style:italic;color:var(--red2)}
+.cta-sub{font-size:1rem;font-weight:300;color:rgba(255,255,255,.5);margin-bottom:48px;line-height:1.7}
+.cta-email-box{
+  display:inline-flex;flex-direction:column;align-items:center;gap:6px;
+  background:rgba(255,255,255,.04);
+  border:1px dashed rgba(217,48,37,.4);
+  border-radius:16px;padding:28px 48px;
+}
+.cta-email-label{font-size:.65rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.3)}
+.cta-email{font-family:'Fraunces',serif;font-size:1.6rem;font-weight:700;color:var(--red2);text-decoration:none;transition:color .25s}
+.cta-email:hover{color:#fff}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  border-top:1px solid rgba(255,255,255,.06);
+  padding:28px 48px;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px
+}
+.footer-logo{font-family:'Fraunces',serif;font-size:1rem;font-weight:700;color:rgba(255,255,255,.5)}
+.footer-logo span{color:var(--red)}
+.footer-copy{font-size:.68rem;color:rgba(255,255,255,.2);letter-spacing:.04em}
+.footer-email{font-size:.68rem;color:rgba(255,255,255,.25);letter-spacing:.02em}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.on{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}
+.reveal-d2{transition-delay:.2s}
+.reveal-d3{transition-delay:.3s}
+.reveal-d4{transition-delay:.4s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  nav{padding:18px 24px}
+  .hero{grid-template-columns:1fr;height:auto;min-height:100vh}
+  .hero-right{display:none}
+  .hero-left{padding:120px 28px 60px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{border-bottom:1px solid var(--border)}
+  .why{padding:72px 24px}
+  .why-grid{grid-template-columns:1fr}
+  .mosaic{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .mimg.tall{grid-row:span 1}
+  .who{padding:72px 24px}
+  .who-grid{grid-template-columns:1fr;gap:40px}
+  .cta{padding:80px 24px}
+  footer{padding:24px;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+<div id="cursor-ring"></div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <span class="logo-canada">Canada</span><span class="logo-restaurant">Restaurant</span><span class="logo-tld">.shop</span>
+  </a>
+  <a href="mailto:mustaphahouam2@gmail.com?subject=Offer%20for%20CanadaRestaurant.shop&body=Hello%2C%0A%0AI%20am%20interested%20in%20acquiring%20CanadaRestaurant.shop.%0A%0AMy%20offer%20is%3A%20%24" class="nav-pill">🍁 Make an Offer</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-photo"></div>
+    <div class="hero-eyebrow">🍁 Premium Domain For Sale</div>
+    <h1 class="hero-title">The #1 Name<br/>for <em>Canadian</em><br/>Dining Online</h1>
+    <p class="hero-sub">CanadaRestaurant.shop is a rare, high-value domain built for Canada's food &amp; hospitality industry. Own it before someone else does.</p>
+    <div class="hero-btns">
+      <a href="mailto:mustaphahouam2@gmail.com?subject=Offer%20for%20CanadaRestaurant.shop&body=Hello%2C%0A%0AI%20am%20interested%20in%20acquiring%20CanadaRestaurant.shop.%0A%0AMy%20offer%20is%3A%20%24" class="btn-solid">Make an Offer →</a>
+      <a href="mailto:mustaphahouam2@gmail.com?subject=Inquiry%20-%20CanadaRestaurant.shop" class="btn-outline">Email Direct</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-right-grid">
+      <div class="himg tall">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=80" alt="Restaurant"/>
+        <div class="himg-overlay"></div>
+      </div>
+      <div class="himg">
+        <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80" alt="Canadian food"/>
+        <div class="himg-overlay"></div>
+      </div>
+      <div class="himg">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=600&q=80" alt="Gourmet"/>
+        <div class="himg-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <div class="ticker-item">canadarestaurant.shop <span class="ticker-sep"></span></div>
+    <div class="ticker-item">Premium Domain <span class="ticker-sep"></span></div>
+    <div class="ticker-item">Canadian Food Industry <span class="ticker-sep"></span></div>
+    <div class="ticker-item">For Sale Now <span class="ticker-sep"></span></div>
+    <div class="ticker-item">High SEO Value <span class="ticker-sep"></span></div>
+    <div class="ticker-item">Instant Brand Recognition <span class="ticker-sep"></span></div>
+    <div class="ticker-item">canadarestaurant.shop <span class="ticker-sep"></span></div>
+    <div class="ticker-item">Premium Domain <span class="ticker-sep"></span></div>
+    <div class="ticker-item">Canadian Food Industry <span class="ticker-sep"></span></div>
+    <div class="ticker-item">For Sale Now <span class="ticker-sep"></span></div>
+    <div class="ticker-item">High SEO Value <span class="ticker-sep"></span></div>
+    <div class="ticker-item">Instant Brand Recognition <span class="ticker-sep"></span></div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat reveal">
+    <div class="stat-num">37<span>M+</span></div>
+    <div class="stat-label">Canadians Online</div>
+    <div class="stat-source">Statista / DataReportal 2024</div>
+  </div>
+  <div class="stat reveal reveal-d1">
+    <div class="stat-num">$<span>99.6B</span></div>
+    <div class="stat-label">Foodservice Revenue 2024</div>
+    <div class="stat-source">Statistics Canada 2024</div>
+  </div>
+  <div class="stat reveal reveal-d2">
+    <div class="stat-num">100<span>K+</span></div>
+    <div class="stat-label">Restaurants in Canada</div>
+    <div class="stat-source">Restaurants Canada 2024</div>
+  </div>
+  <div class="stat reveal reveal-d3">
+    <div class="stat-num">1.2<span>M</span></div>
+    <div class="stat-label">Industry Employees</div>
+    <div class="stat-source">Statistics Canada 2025</div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="why">
+  <p class="section-label reveal">Domain Value</p>
+  <h2 class="section-title reveal reveal-d1">Why This Domain <em>Stands Out</em></h2>
+  <div class="why-grid">
+    <div class="why-card reveal">
+      <div class="why-num">01</div>
+      <div class="why-icon">🍁</div>
+      <h3>Canadian Authority</h3>
+      <p>"Canada" in your domain builds immediate trust and local SEO strength with Canadian consumers and search engines alike.</p>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <div class="why-num">02</div>
+      <div class="why-icon">🛒</div>
+      <h3>Commerce-Ready TLD</h3>
+      <p>The .shop extension signals e-commerce intent — ideal for online ordering, food delivery, catering bookings, or supplier platforms.</p>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-num">03</div>
+      <div class="why-icon">🎯</div>
+      <h3>Memorable Brand</h3>
+      <p>Short, direct, and impossible to forget. Customers type it once and remember it forever — zero brand confusion.</p>
+    </div>
+    <div class="why-card reveal">
+      <div class="why-num">04</div>
+      <div class="why-icon">📈</div>
+      <h3>Strong SEO Potential</h3>
+      <p>Exact-match keywords in a domain carry real weight. Rank faster for "Canada restaurant" searches and capture organic traffic from day one.</p>
+    </div>
+    <div class="why-card reveal reveal-d1">
+      <div class="why-num">05</div>
+      <div class="why-icon">💼</div>
+      <h3>Investor-Grade Asset</h3>
+      <p>Premium domains appreciate over time. Canada's foodservice market hit $99.6B in 2024 and is growing — this domain sits right at the center of it.</p>
+    </div>
+    <div class="why-card reveal reveal-d2">
+      <div class="why-num">06</div>
+      <div class="why-icon">⚡</div>
+      <h3>Ready to Deploy</h3>
+      <p>Transfer within 24 hours. Launch your brand immediately with a domain name that communicates your value proposition at a glance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO MOSAIC -->
+<div class="mosaic">
+  <div class="mimg tall reveal">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=80" alt="Fine dining"/>
+    <div class="mimg-caption">Fine Dining</div>
+  </div>
+  <div class="mimg reveal reveal-d1">
+    <img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=600&q=80" alt="Plated"/>
+    <div class="mimg-caption">Culinary Art</div>
+  </div>
+  <div class="mimg reveal reveal-d2">
+    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=600&q=80" alt="Grill"/>
+    <div class="mimg-caption">Grill &amp; Smoke</div>
+  </div>
+  <div class="mimg reveal reveal-d1">
+    <img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600&q=80" alt="Canadian"/>
+    <div class="mimg-caption">Canadian Flavours</div>
+  </div>
+  <div class="mimg reveal reveal-d2">
+    <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=80" alt="Fresh"/>
+    <div class="mimg-caption">Fresh &amp; Local</div>
+  </div>
+</div>
+
+<!-- WHO -->
+<section class="who">
+  <div class="who-grid">
+    <div class="who-image reveal">
+      <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?w=800&q=80" alt="Restaurant"/>
+      <div class="who-image-badge">
+        <div class="badge-big">🍁</div>
+        <div class="badge-small">Made for Canada</div>
+      </div>
+    </div>
+    <div>
+      <p class="section-label reveal">Ideal Buyers</p>
+      <h2 class="section-title reveal reveal-d1">Who Should <em>Own This?</em></h2>
+      <div class="who-cards">
+        <div class="who-card reveal">
+          <div class="who-card-icon">🍽️</div>
+          <div>
+            <h4>Restaurant Chains &amp; Franchises</h4>
+            <p>Expand nationally with a domain that Canadians instantly recognize and trust.</p>
+          </div>
+        </div>
+        <div class="who-card reveal reveal-d1">
+          <div class="who-card-icon">📱</div>
+          <div>
+            <h4>Food Delivery &amp; Tech Startups</h4>
+            <p>Launch your platform with a name that already explains what you do.</p>
+          </div>
+        </div>
+        <div class="who-card reveal reveal-d2">
+          <div class="who-card-icon">🏨</div>
+          <div>
+            <h4>Hotels &amp; Hospitality Groups</h4>
+            <p>Drive dining reservations and new customers with a domain they remember.</p>
+          </div>
+        </div>
+        <div class="who-card reveal reveal-d3">
+          <div class="who-card-icon">🧑‍🍳</div>
+          <div>
+            <h4>Food Media &amp; Influencers</h4>
+            <p>Build the definitive Canadian food media brand with the most relevant address available.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <p class="cta-label reveal">Acquisition</p>
+    <h2 class="cta-title reveal reveal-d1">Secure This Domain<br/><em>Before It's Gone</em></h2>
+    <p class="cta-sub reveal reveal-d2">Serious buyers only. Send your offer or inquiry directly — we respond within 24 hours.</p>
+    <div class="cta-email-box reveal reveal-d3">
+      <span class="cta-email-label">Contact the Owner</span>
+      <a href="mailto:mustaphahouam2@gmail.com?subject=Offer%20for%20CanadaRestaurant.shop&body=Hello%2C%0A%0AI%20am%20interested%20in%20acquiring%20CanadaRestaurant.shop.%0A%0AMy%20offer%20is%3A%20%24" class="cta-email">mustaphahouam2@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Canada<span>Restaurant</span>.shop</div>
+  <span class="footer-copy">© 2026 — All Rights Reserved</span>
+  <span class="footer-email">mustaphahouam2@gmail.com</span>
+</footer>
+
+<script>
+const cur = document.getElementById('cursor');
+const ring = document.getElementById('cursor-ring');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top = e.clientY + 'px';
+  ring.style.left = e.clientX + 'px';
+  ring.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a,button').forEach(el => {
+  el.addEventListener('mouseenter', () => document.body.classList.add('cursor-grow'));
+  el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-grow'));
+});
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('solid', scrollY > 60));
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+const hp = document.querySelector('.hero-photo');
+window.addEventListener('scroll', () => {
+  if(hp) hp.style.transform = `translateY(${scrollY * 0.15}px)`;
+});
+</script>
+</body>
+</html>
